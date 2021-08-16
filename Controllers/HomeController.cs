@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Contact.Models;
+using Hospital.Models;
 
-namespace Contact.Controllers
+namespace Hospital.Controllers
 {
     public class HomeController : Controller
     {

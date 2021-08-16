@@ -8,8 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Hospital.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace Contact
+namespace Hospital
 {
     public class Startup
     {
@@ -23,6 +25,14 @@ namespace Contact
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<HospitalContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            
+
+            // middleware for Entity Framework Core error pages. This middleware helps to detect and diagnose 
+            // errors with Entity Framework Core migrations.
+            services.AddDatabaseDeveloperPageExceptionFilter();
+            
             services.AddControllersWithViews();
         }
 
