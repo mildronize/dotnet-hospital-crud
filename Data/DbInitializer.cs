@@ -16,12 +16,15 @@ namespace Hospital.Data
                 return;   // DB has been seeded
             }
 
-            var students = new Member[]
+            var members = new Member[]
             {
                 new Member{Name="Carson Alexander",HospitalNumber="003214",PhoneNumber="0876483746", Email="carson.a@gmail.com"},
                 new Member{Name="Meredith Alonso",HospitalNumber="003354",PhoneNumber="0897463845", Email="meredith.a@gmail.com"},
             };
-           
+            foreach (Member m in members)
+            {
+                context.Member.Add(m);
+            }
             context.SaveChanges();
         }
     }
