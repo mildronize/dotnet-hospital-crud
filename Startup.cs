@@ -51,6 +51,8 @@ namespace Hospital
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseStatusCodePages();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
